@@ -8,7 +8,7 @@ export function BrandLockup({ compact = false }: { compact?: boolean }) {
       className={`group inline-flex items-center gap-3 leading-none no-underline text-[#17172A] transition-transform hover:-translate-y-0.5 ${compact ? "scale-95" : ""}`}
       href="#home"
     >
-      {/* Hand-drawn DT Monogram Badge */}
+      {/* Hand-drawn PH Monogram Badge */}
       <span className="relative isolate grid h-11 w-11 flex-none place-items-center -rotate-2">
         <svg
           aria-hidden="true"

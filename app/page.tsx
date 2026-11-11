@@ -5,7 +5,8 @@ import { TrustStrip } from "@/components/sections/TrustStrip";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { FeaturedWork } from "@/components/sections/FeaturedWork";
 import { ProcessSection } from "@/components/sections/ProcessSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { AboutBanner } from "@/components/sections/AboutBanner";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { SkipLink } from "@/components/ui/SkipLink";
 import { Reveal } from "@/components/ui/Reveal";
@@ -50,7 +51,7 @@ export default function Home() {
             <ProcessSection />
           </Reveal>
 
-          {/* Process → Testimonials */}
+          {/* Process → About */}
           <WavyDivider
             bottomColor="#FFF8E8"
             height={32}
@@ -59,14 +60,26 @@ export default function Home() {
           />
 
           <Reveal>
-            <TestimonialsSection />
+            <AboutBanner />
           </Reveal>
 
-          {/* Testimonials → CTA */}
+          {/* About → Experience */}
+          <WavyDivider
+            bottomColor="#FFF0B0"
+            height={32}
+            topColor="#FFF8E8"
+            variant="paper"
+          />
+
+          <Reveal>
+            <ExperienceSection />
+          </Reveal>
+
+          {/* Experience → CTA */}
           <WavyDivider
             bottomColor="#CFEBD8"
             height={32}
-            topColor="#FFF8E8"
+            topColor="#FFF0B0"
             variant="asymmetric"
           />
 

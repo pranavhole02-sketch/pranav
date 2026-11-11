@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
     const result = await insertInquiry({
       name: name.trim(),
       email: email.trim(),
-      service: (service || "General Inquiry").trim(),
+      service: (service || "Something Else").trim(),
       message: message.trim(),
       ipAddress,
       userAgent,
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   return NextResponse.json({
     status: "ok",
-    service: "Dialex Technologies Inquiries API",
+    service: "Pranav Hole Inquiries API",
     timestamp: new Date().toISOString(),
   });
 }

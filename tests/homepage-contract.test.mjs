@@ -13,7 +13,7 @@ const read = async (path) => {
   }
 };
 
-test("homepage uses the reference section order without a standalone about panel", async () => {
+test("homepage renders the portfolio sections in order", async () => {
   const page = await read("app/page.tsx");
   const sections = [
     "<HeroSection",
@@ -21,7 +21,8 @@ test("homepage uses the reference section order without a standalone about panel
     "<ServicesSection",
     "<FeaturedWork",
     "<ProcessSection",
-    "<TestimonialsSection",
+    "<AboutBanner",
+    "<ExperienceSection",
     "<CTASection",
   ];
 
@@ -29,60 +30,60 @@ test("homepage uses the reference section order without a standalone about panel
   for (const section of sections) {
     const position = page.indexOf(section);
     assert.notEqual(position, -1, `${section} must be rendered`);
-    assert.ok(position > previous, `${section} must follow the reference order`);
+    assert.ok(position > previous, `${section} must follow the expected order`);
     previous = position;
   }
 
-  assert.doesNotMatch(page, /<AboutBanner/);
+  assert.doesNotMatch(page, /Testimonials/);
 });
 
-test("hero, services, projects, process, testimonial, and CTA use exact copy", async () => {
+test("freelance portfolio copy is present and agency copy is gone", async () => {
   const sources = (
-    await Promise.all([
-      "data/page-content.ts",
-      "data/services.ts",
-      "data/projects.ts",
-      "data/process.ts",
-      "components/sections/TestimonialsSection.tsx",
-    ].map(read))
+    await Promise.all(
+      ["lib/constants.ts", "config/site.ts"].map(read),
+    )
   ).join("\n");
 
-  const requiredCopy = [
-    "IDEA → DESIGN → DEVELOP → GROW",
-    "We build digital",
-    "products that",
-    "work.",
-    "Websites, Web Apps & AI-Powered Solutions for Modern Businesses.",
-    "What We Can Help You With",
-    "Web Development",
-    "Fast, responsive and modern websites that represent your brand.",
-    "E-Commerce",
-    "Online stores that convert visitors into loyal customers.",
-    "Web Applications",
-    "Powerful web apps built for performance and scalability.",
-    "AI Integrations",
-    "Smart AI features to automate, analyze and grow your business.",
-    "Selected Work",
-    "Business Landing Page",
-    "E-Commerce Store",
-    "AI Dashboard",
-    "Our Process",
-    "Discover",
-    "Design",
-    "Develop",
-    "Launch",
-    "Grow",
-    "What Clients Say",
-    "Dialex Technologies delivered an amazing website that exceeded our expectations.",
-    "John Doe",
-    "Founder, StartupX",
-    "Have a project in mind?",
-    "Let's build something awesome together.",
-  ];
-
-  for (const copy of requiredCopy) {
-    assert.ok(sources.includes(copy), `Missing exact copy: ${copy}`);
+  for (const copy of [
+    "AVAILABLE FOR FREELANCE",
+    "I build AI agents",
+    "AI Agents & Automation",
+    "SaaS & Web Apps",
+    "APIs & Backend",
+    "BlueFin AI Portal",
+    "ChainOps AI",
+    "Vendorbay",
+    "TokenTrade",
+    "Small Day Tech",
+    "Tata Consultancy Services",
+    "pranavhole02@gmail.com",
+  ]) {
+    assert.ok(sources.includes(copy), `Missing copy: ${copy}`);
   }
+
+  // No leftover agency identity or invented testimonials anywhere in the app.
+  const files = [
+    "app/layout.tsx",
+    "app/manifest.ts",
+    "app/opengraph-image.tsx",
+    "app/robots.ts",
+    "app/sitemap.ts",
+    "components/seo/JsonLd.tsx",
+    "components/layout/Footer.tsx",
+    "components/ui/InquiryModal.tsx",
+    "components/sections/HeroSection.tsx",
+    "components/sections/AboutBanner.tsx",
+    "components/sections/CTASection.tsx",
+    "components/sections/ExperienceSection.tsx",
+    "components/sections/FeaturedWork.tsx",
+    "components/sections/ServicesSection.tsx",
+    "lib/constants.ts",
+    "config/site.ts",
+  ];
+  const everything = (await Promise.all(files.map(read))).join("\n");
+  assert.doesNotMatch(everything, /dialex/i);
+  assert.doesNotMatch(everything, /Jaipur/);
+  assert.doesNotMatch(everything, /John Doe|Sarah Jenkins|Alex Rivera/);
 });
 
 test("hero video follows the accessible autoplay media contract", async () => {
@@ -104,24 +105,16 @@ test("hero video follows the accessible autoplay media contract", async () => {
   assert.doesNotMatch(artwork, /controls(?:=|\s|>)/);
 });
 
-test("metadata matches the consultancy SEO brief", async () => {
+test("metadata targets freelance AI and full-stack work", async () => {
   const layout = await read("app/layout.tsx");
 
-  assert.ok(
-    layout.includes("Dialex Technologies | Full-Stack Development & AI Solutions Company"),
-  );
-  assert.ok(
-    layout.includes(
-      "Dialex Technologies Private Limited helps businesses build modern websites, scalable web applications, AI-powered solutions and cloud systems.",
-    ),
-  );
+  assert.ok(layout.includes("Pranav Hole | Freelance AI Engineer & Full-Stack Developer"));
   for (const keyword of [
-    "Dialex Technologies",
-    "Full Stack Developer",
-    "AI Engineer",
+    "Freelance AI Engineer",
+    "Freelance Full Stack Developer",
+    "Multi-Agent AI Developer",
     "Next.js Developer",
-    "AI Consulting",
-    "Cloud Development",
+    "RAG Developer",
   ]) {
     assert.ok(layout.includes(keyword), `Missing SEO keyword: ${keyword}`);
   }

@@ -6,7 +6,7 @@ import { SketchFrame } from "./SketchFrame";
 import { SketchIconButton } from "./SketchIconButton";
 import { ComicButton } from "./ComicButton";
 import { Sparkle, StarDoodle, PaperPlaneDoodle } from "@/components/svg/Doodles";
-import { SITE_INFO } from "@/lib/constants";
+import { SITE_INFO, SERVICES } from "@/lib/constants";
 
 type InquiryModalProps = {
   isOpen: boolean;
@@ -14,18 +14,12 @@ type InquiryModalProps = {
   initialService?: string;
 };
 
-const serviceOptions = [
-  "Web Development",
-  "E-Commerce",
-  "Web Applications",
-  "AI Integrations",
-  "General Inquiry",
-];
+const serviceOptions = [...SERVICES.map((s) => s.title), "Something Else"];
 
 export function InquiryModal({
   isOpen,
   onClose,
-  initialService = "Web Development",
+  initialService = SERVICES[0].title,
 }: InquiryModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -170,7 +164,7 @@ export function InquiryModal({
                   Let&apos;s Talk!
                 </h2>
                 <p className="font-hand text-sm font-bold text-muted mt-1 mb-0">
-                  {SITE_INFO.name} • Start your project inquiry
+                  {SITE_INFO.name} • Freelance project inquiry
                 </p>
               </div>
             </div>
@@ -224,7 +218,7 @@ export function InquiryModal({
                     disabled={isSubmitting}
                     id="inquiry-email"
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@company.com"
+                    placeholder="you@example.com"
                     required
                     type="email"
                     value={email}
@@ -277,7 +271,7 @@ export function InquiryModal({
                   disabled={isSubmitting}
                   id="inquiry-message"
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Tell us about your goals, timeline, and requirements..."
+                  placeholder="Tell me about your goals, timeline and budget..."
                   required
                   rows={3}
                   value={message}
@@ -324,10 +318,10 @@ export function InquiryModal({
                 <CheckCircle2 className="text-[#17172A]" size={36} strokeWidth={2.5} />
               </div>
               <h3 className="font-hand text-3xl font-black text-[#17172A] m-0">
-                Inquiry Saved Successfully!
+                Message Received!
               </h3>
               <p className="font-hand text-base font-bold text-muted max-w-md mx-auto">
-                Thank you for reaching out to <strong>{SITE_INFO.name}</strong>. Your inquiry has been securely stored in our backend database, and our team will review your project requirements and get back to you within 24 hours.
+                Thanks for reaching out. Your message has been saved and I&apos;ll get back to you by email.
               </p>
               <div className="pt-3">
                 <ComicButton

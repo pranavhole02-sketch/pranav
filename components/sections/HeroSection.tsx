@@ -10,7 +10,7 @@ import { Sparkle, StarDoodle, HalftoneDots } from "@/components/svg/Doodles";
 export function HeroSection() {
   return (
     <section
-      aria-label="Dialex Technologies Hero Introduction"
+      aria-label="Pranav Hole introduction"
       className="relative min-h-[700px] bg-cream py-10 md:py-20 overflow-hidden"
       id="home"
       style={{
@@ -44,11 +44,11 @@ export function HeroSection() {
 
           {/* Main Heading */}
           <h1 className="m-0 font-hand text-[clamp(3.2rem,5.5vw,5.5rem)] leading-[0.94] tracking-[0.01em] text-[#17172A]">
-            <span className="block">We build digital</span>
-            <span className="block">products that</span>
+            <span className="block">{SITE_INFO.headlineLines[0]}</span>
+            <span className="block">{SITE_INFO.headlineLines[1]}</span>
             <span className="block">
               <span className="relative inline-block px-1">
-                <span className="relative z-10">work.</span>
+                <span className="relative z-10">{SITE_INFO.headlineHighlight}</span>
                 {/* Hand-drawn yellow marker highlight stroke */}
                 <svg
                   aria-hidden="true"
@@ -76,7 +76,7 @@ export function HeroSection() {
           </h1>
 
           {/* Subtext */}
-          <p className="mt-6 mb-0 font-hand text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-muted max-w-[500px]">
+          <p className="mt-6 mb-0 font-hand text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-muted max-w-[560px]">
             {SITE_INFO.subtext}
           </p>
 
@@ -84,12 +84,11 @@ export function HeroSection() {
           <div className="mt-8 flex flex-wrap gap-4 max-[420px]:w-full max-[420px]:flex-col max-sm:w-full max-sm:flex-col">
             <InquiryTriggerButton
               className="max-[420px]:w-full max-sm:w-full"
-              service="Web Development"
               size="lg"
               variant="pink"
               withArrow
             >
-              Start Your Project
+              Hire Me
             </InquiryTriggerButton>
             <ComicButton
               className="max-sm:w-full"
@@ -97,7 +96,7 @@ export function HeroSection() {
               size="lg"
               variant="white"
             >
-              View Our Work
+              See My Work
             </ComicButton>
           </div>
         </div>

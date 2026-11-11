@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Dialex Technologies",
-    short_name: "Dialex",
+    name: "Pranav Hole",
+    short_name: "Pranav",
     description:
-      "Dialex Technologies Private Limited helps businesses build modern websites, scalable web applications, AI-powered solutions, and cloud systems.",
+      "Freelance AI engineer and full-stack developer building multi-agent AI systems, SaaS platforms and scalable backends.",
     start_url: "/",
     display: "standalone",
     background_color: "#FFF8E8",

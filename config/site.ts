@@ -1,39 +1,35 @@
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || null;
 
+/**
+ * Single source of truth for identity, contact and external links.
+ * Set any `null` link below to a real URL and it appears on the site automatically.
+ */
 export const siteConfig = {
-  name: "Dialex Technologies",
-  companyName: "DIALEX TECHNOLOGIES PRIVATE LIMITED",
-  initials: "DT",
-  role: "Full-Stack Development & AI Solutions",
+  name: "Pranav Hole",
+  fullName: "Pranav Sandip Hole",
+  initials: "PH",
+  role: "Freelance AI Engineer & Full-Stack Developer",
+  location: "Bengaluru, India",
   siteUrl: configuredSiteUrl,
-  address: "SHOP NO. 58 ARIHANT NAGAR, HATHOJ KALWAR ROAD, Hathoj, Jaipur, Jaipur- 302012, Rajasthan",
-  contactActionsEnabled: true,
   contact: {
-    email: "info@dialextech.com",
-    phone: null as string | null,
-    meetingUrl: null as string | null,
-    resumeUrl: null as string | null,
+    email: "pranavhole02@gmail.com",
+    phone: "+91 8530008525",
+    phoneHref: "tel:+918530008525",
   },
   socials: {
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    x: "https://x.com",
+    github: "https://github.com/pranavhole02-sketch" as string | null,
+    linkedin: "https://www.linkedin.com/in/pranav-hole/" as string | null,
   },
-  projectUrls: {
-    aiEngineerWorkspace: null as string | null,
-    instacity: null as string | null,
-    muzzy: null as string | null,
+  projectLinks: {
+    chainops: { github: null as string | null, live: null as string | null },
+    tokentrade: { github: null as string | null, live: null as string | null },
   },
-  viewAllProjectsUrl: null as string | null,
 } as const;
 
-const primaryContactUrl =
-  siteConfig.contact.meetingUrl ??
-  (siteConfig.contact.email ? `mailto:${siteConfig.contact.email}` : null);
-
-export const contactLinks = {
-  talk: siteConfig.contactActionsEnabled ? primaryContactUrl : null,
-  startProject: siteConfig.contactActionsEnabled ? primaryContactUrl : null,
-  buildTogether: siteConfig.contactActionsEnabled ? primaryContactUrl : null,
-  scheduleCall: siteConfig.contactActionsEnabled ? primaryContactUrl : null,
-} as const;
+/** Public origin of the deployed site (env var, then Vercel, then local dev). */
+export function getSiteUrl(): string {
+  if (siteConfig.siteUrl) return siteConfig.siteUrl;
+  const vercelHost =
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  return vercelHost ? `https://${vercelHost}` : "http://localhost:3000";
+}

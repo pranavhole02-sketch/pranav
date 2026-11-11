@@ -1,18 +1,18 @@
 import React from "react";
-import { LaptopIcon, CartIcon, MobileIcon, AIChipIcon } from "@/components/svg/Icons";
+import { LaptopIcon, DatabaseIcon, CloudIcon, AIChipIcon } from "@/components/svg/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ComicButton } from "@/components/ui/ComicButton";
+import { InquiryTriggerButton } from "@/components/ui/InquiryTriggerButton";
 import { OrganicBlob, OrganicBlobVariant } from "@/components/ui/OrganicBlob";
 import { SketchFrame } from "@/components/ui/SketchFrame";
 import { SketchBorderVariant } from "@/components/ui/SketchBorder";
-import { SERVICES, SITE_INFO } from "@/lib/constants";
+import { SERVICES } from "@/lib/constants";
 import { Sparkle, CurvedArrow, PaperPlaneDoodle } from "@/components/svg/Doodles";
 
 export function ServicesSection() {
   const iconComponents = {
     laptop: LaptopIcon,
-    cart: CartIcon,
-    mobile: MobileIcon,
+    database: DatabaseIcon,
+    cloud: CloudIcon,
     "ai-chip": AIChipIcon,
   };
 
@@ -46,8 +46,8 @@ export function ServicesSection() {
         {/* Section Heading */}
         <SectionHeading
           id="services-heading"
-          subtitle="Modern web architecture, scalable systems & smart automation tailored to your business."
-          title="What We Can Help You With"
+          subtitle="Production-grade AI, full-stack and backend engineering, delivered end to end."
+          title="How I Can Help"
           tone="yellow"
         />
 
@@ -135,14 +135,9 @@ export function ServicesSection() {
               <CurvedArrow className="w-12 h-10 text-[#17172A]" direction="down" />
             </div>
 
-            <ComicButton
-              href={SITE_INFO.links.startProject}
-              size="lg"
-              variant="pink"
-              withArrow
-            >
-              Explore All Services
-            </ComicButton>
+            <InquiryTriggerButton size="lg" variant="pink" withArrow>
+              Discuss Your Project
+            </InquiryTriggerButton>
           </div>
         </div>
       </div>

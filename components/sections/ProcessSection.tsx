@@ -43,8 +43,8 @@ export function ProcessSection() {
         {/* Section Heading */}
         <SectionHeading
           id="process-heading"
-          subtitle="A structured, transparent workflow designed to take your idea from concept to scalable reality."
-          title="Our Process"
+          subtitle="A simple, transparent workflow that takes your idea from first call to a product running in production."
+          title="How I Work"
           tone="yellow"
         />
 

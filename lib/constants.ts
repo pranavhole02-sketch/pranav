@@ -1,35 +1,33 @@
+import { siteConfig } from "@/config/site";
+
 export const SITE_INFO = {
-  name: "Dialex Technologies",
-  companyName: "DIALEX TECHNOLOGIES PRIVATE LIMITED",
-  role: "Full-Stack Development & AI Solutions",
-  initials: "DT",
-  address:
-    "SHOP NO. 58 ARIHANT NAGAR, HATHOJ KALWAR ROAD, Hathoj, Jaipur, Jaipur- 302012, Rajasthan",
-  headline: "We build digital products that work.",
-  subtext: "Websites, Web Apps & AI-Powered Solutions for Modern Businesses.",
-  tagline: "IDEA → DESIGN → DEVELOP → GROW",
-  aboutHeading: "About Dialex Technologies",
+  name: siteConfig.name,
+  initials: siteConfig.initials,
+  role: siteConfig.role,
+  location: siteConfig.location,
+  tagline: "AVAILABLE FOR FREELANCE · REMOTE",
+  headlineLines: ["I build AI agents", "& SaaS products", "that ship."] as const,
+  headlineHighlight: "ship.",
+  subtext:
+    "Senior AI engineer with 4+ years shipping production SaaS: multi-agent systems, RAG and full-stack web apps for startups and distributed teams.",
+  aboutHeading: "Hi, I'm Pranav",
+  aboutLead:
+    "A senior AI engineer and full-stack developer in Bengaluru who takes products from idea to production.",
   aboutCopy:
-    "Dialex Technologies Private Limited is a full-stack digital solutions company focused on building clean, scalable and high-performance digital products. We work across modern web development, backend systems, cloud infrastructure and smart AI solutions.",
-  aboutSkills: ["Full-Stack", "AI Engineering", "Cloud & Backend"],
+    "I've spent 4+ years building production SaaS and AI systems: 2+ in full-time roles and 2+ freelancing with startups. Right now I'm building a governed multi-agent delivery platform at Small Day Tech. I work independently and with distributed teams, and I care about software that is secure, well tested and affordable to run.",
+  education: "B.E. Electrical Engineering, Government College of Engineering Amravati (2020 – 2024)",
   ctaHeading: "Have a project in mind?",
-  ctaSubtext: "Let's build something awesome together.",
+  ctaSubtext: "Tell me what you're building and I'll get back to you by email.",
   footerDescription:
-    "Helping businesses build modern, scalable and impactful digital products.",
-  copyright: "© 2026 Dialex Technologies Private Limited. All rights reserved.",
-  email: "info@dialextech.com",
+    "Freelance AI engineer and full-stack developer building agentic AI, SaaS platforms and backends.",
+  copyright: `© 2026 ${siteConfig.fullName}. All rights reserved.`,
+  email: siteConfig.contact.email,
+  phone: siteConfig.contact.phone,
+  phoneHref: siteConfig.contact.phoneHref,
   links: {
-    talk: "#contact",
-    startProject: "#contact",
     viewWork: "#work",
-    buildTogether: "#contact",
   },
-  socials: {
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    twitter: "https://x.com",
-    email: "mailto:info@dialextech.com",
-  },
+  socials: siteConfig.socials,
 } as const;
 
 export const NAV_LINKS = [
@@ -37,101 +35,93 @@ export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Process", href: "#process" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
 export const TRUST_ITEMS = [
-  {
-    icon: "rocket",
-    title: "On-Time Delivery",
-    tone: "yellow",
-  },
-  {
-    icon: "growth",
-    title: "Scalable & Reliable",
-    tone: "mint",
-  },
-  {
-    icon: "heart",
-    title: "Support Beyond Launch",
-    tone: "pink",
-  },
+  { icon: "rocket", title: "4+ Years in Production", tone: "yellow" },
+  { icon: "growth", title: "5+ Freelance Clients", tone: "mint" },
+  { icon: "heart", title: "Remote-First Collaboration", tone: "pink" },
 ] as const;
 
 export const SERVICES = [
   {
-    id: "web-dev",
-    title: "Web Development",
-    description: "Fast, responsive and modern websites that represent your brand.",
-    icon: "laptop",
-    iconBg: "bg-[#CFEBD8]", // pastel green
-    cardTone: "yellow",
-  },
-  {
-    id: "ecommerce",
-    title: "E-Commerce",
-    description: "Online stores that convert visitors into loyal customers.",
-    icon: "cart",
-    iconBg: "bg-[#FFF0B0]", // pastel yellow
-    cardTone: "mint",
-  },
-  {
-    id: "web-apps",
-    title: "Web Applications",
-    description: "Powerful web apps built for performance and scalability.",
-    icon: "mobile",
-    iconBg: "bg-[#DCC8F6]", // pastel lavender
-    cardTone: "pink",
-  },
-  {
-    id: "ai-integrations",
-    title: "AI Integrations",
-    description: "Smart AI features to automate, analyze and grow your business.",
+    id: "ai-agents",
+    title: "AI Agents & Automation",
+    description:
+      "Multi-agent systems, RAG and MCP tool integrations with guardrails, audit logs and cost controls built in.",
     icon: "ai-chip",
-    iconBg: "bg-[#F6B8B8]", // pastel pink
-    cardTone: "lavender",
+  },
+  {
+    id: "saas-web-apps",
+    title: "SaaS & Web Apps",
+    description:
+      "Full-stack products in Next.js, Node.js and PostgreSQL, taken from MVP to production.",
+    icon: "laptop",
+  },
+  {
+    id: "backend-apis",
+    title: "APIs & Backend",
+    description:
+      "REST and GraphQL APIs, Redis caching and query tuning for backends that stay fast under load.",
+    icon: "database",
+  },
+  {
+    id: "cloud-migration",
+    title: "Cloud, DevOps & Migration",
+    description:
+      "AWS, Docker and CI/CD pipelines, plus moving legacy systems onto a modern Node.js stack.",
+    icon: "cloud",
   },
 ] as const;
 
-export const PROJECT_TABS = [
-  "All",
-  "Websites",
-  "Web Apps",
-  "E-Commerce",
-  "AI Projects",
-] as const;
+export const PROJECT_TABS = ["All", "AI & Agents", "SaaS", "Real-Time"] as const;
 
 export const PROJECTS = [
   {
-    id: "business-landing-page",
-    title: "Business Landing Page",
-    description: "Modern landing page for a digital agency.",
-    category: "Websites",
-    tag: "Website",
-    type: "landing-page",
-    accent: "mint",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "SEO"],
-  },
-  {
-    id: "ecommerce-store",
-    title: "E-Commerce Store",
-    description: "Full-featured online store with payment & admin.",
-    category: "E-Commerce",
-    tag: "E-Commerce",
-    type: "ecommerce",
-    accent: "yellow",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-  },
-  {
-    id: "ai-dashboard",
-    title: "AI Dashboard",
-    description: "AI-powered dashboard for data insights & automation.",
-    category: "AI Projects",
-    tag: "Web App",
+    id: "bluefin-ai-portal",
+    title: "BlueFin AI Portal",
+    description:
+      "Governed AI delivery platform (in development). Six agents turn requirements into reviewed pull requests inside sandboxes, with policy-checked tool calls, a budget halt and human approval before any merge or deploy.",
+    category: "AI & Agents",
+    tag: "AI Platform",
     type: "dashboard",
-    accent: "lavender",
-    tags: ["FastAPI", "Next.js", "LangGraph", "OpenAI"],
+    tags: ["Python", "MCP", "Claude", "GPT", "Gemini", "PostgreSQL", "Redis"],
+    links: null,
+  },
+  {
+    id: "chainops-ai",
+    title: "ChainOps AI",
+    description:
+      "AIOps SaaS with wallet-risk monitoring, incident management, alert rules, automation workflows and billing. Its AI Copilot uses RAG over runbooks for evidence-backed investigations.",
+    category: "AI & Agents",
+    tag: "AIOps SaaS",
+    type: "dashboard",
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "Redis", "Celery", "RAG"],
+    links: siteConfig.projectLinks.chainops,
+  },
+  {
+    id: "vendorbay",
+    title: "Vendorbay",
+    description:
+      "B2B procure-to-pay platform. Built supplier onboarding, product catalogue and procurement backends with GraphQL and REST APIs, Redis caching, and RAG-powered product search.",
+    category: "SaaS",
+    tag: "B2B SaaS",
+    type: "ecommerce",
+    tags: ["Node.js", "TypeScript", "PostgreSQL", "GraphQL", "LangGraph"],
+    links: null,
+  },
+  {
+    id: "tokentrade",
+    title: "TokenTrade",
+    description:
+      "Real-time crypto trading simulator with live Binance order-book streaming and a Redis pub/sub match-engine worker for asynchronous order matching.",
+    category: "Real-Time",
+    tag: "Real-Time",
+    type: "dashboard",
+    tags: ["Next.js", "GraphQL", "Prisma", "PostgreSQL", "Redis"],
+    links: siteConfig.projectLinks.tokentrade,
   },
 ] as const;
 
@@ -139,68 +129,102 @@ export const PROCESS_STEPS = [
   {
     step: 1,
     title: "Discover",
-    description: "Understand your goals & audience",
+    description: "A short call to understand goals, users and constraints",
     icon: "lightbulb",
-    iconBg: "bg-[#CFEBD8]", // pastel green
-    tone: "yellow",
   },
   {
     step: 2,
-    title: "Design",
-    description: "Plan, wireframe & create sleek UI/UX",
+    title: "Scope",
+    description: "Clear milestones, estimate and tech choices before code",
     icon: "pencil",
-    iconBg: "bg-[#FFF0B0]", // pastel yellow
-    tone: "mint",
   },
   {
     step: 3,
-    title: "Develop",
-    description: "Clean code, fast & scalable solutions",
+    title: "Build",
+    description: "Clean, typed and tested code shipped in small increments",
     icon: "code",
-    iconBg: "bg-[#DCC8F6]", // pastel lavender
-    tone: "pink",
   },
   {
     step: 4,
     title: "Launch",
-    description: "Test, deploy & go live smoothly",
+    description: "Deploy with Docker, CI/CD and monitoring in place",
     icon: "launch",
-    iconBg: "bg-[#F6B8B8]", // pastel pink
-    tone: "lavender",
   },
   {
     step: 5,
-    title: "Grow",
-    description: "Support, optimize & scale with you",
+    title: "Support",
+    description: "Handover, docs and follow-up as your product grows",
     icon: "growth",
-    iconBg: "bg-[#BFDFAE]", // pastel mint
-    tone: "mint",
   },
 ] as const;
 
-export const TESTIMONIALS = [
+export const EXPERIENCE = [
   {
-    id: 1,
-    quote:
-      "Dialex Technologies delivered an amazing website that exceeded our expectations.",
-    name: "John Doe",
-    role: "Founder, StartupX",
-    avatarColor: "#F9E37D",
+    id: "smalldaytech",
+    role: "Senior AI Engineer",
+    company: "Small Day Tech",
+    period: "Aug 2026 – Present",
+    summary: "BlueFin AI Portal: governed AI delivery platform.",
+    points: [
+      "Built the multi-agent orchestrator and agent harness in ~2 months in a 3-developer team: 6 agents from requirements to reviewed PR.",
+      "Designed prompt-injection defence by containment: policy-checked, audit-logged tool calls and human approval before any ship.",
+      "Built RAG without a vector DB, multi-model support (Claude, GPT, Gemini) and LLM cost controls.",
+    ],
   },
   {
-    id: 2,
-    quote:
-      "Working with Dialex Technologies was smooth from day one. They built our complete SaaS MVP in record time with immaculate attention to detail.",
-    name: "Sarah Jenkins",
-    role: "Co-Founder, SaaSify",
-    avatarColor: "#DCC8F6",
+    id: "vendorbay",
+    role: "Full-Stack Engineer",
+    company: "Vendorbay",
+    period: "Dec 2025 – Jul 2026",
+    summary: "B2B procure-to-pay SaaS for enterprise procurement.",
+    points: [
+      "Scaled supplier onboarding, catalogue and procurement services with Node.js, TypeScript and PostgreSQL.",
+      "Improved API speed and reliability with Redis caching and query optimisation.",
+      "Integrated RAG and agentic workflows (FastAPI, LangChain, LangGraph) for product search.",
+    ],
   },
   {
-    id: 3,
-    quote:
-      "The AI automation features Dialex Technologies integrated doubled our team's operational efficiency. A truly talented engineering partner.",
-    name: "Alex Rivera",
-    role: "Head of Product, Apex AI",
-    avatarColor: "#CFEBD8",
+    id: "tcs",
+    role: "Backend Developer",
+    company: "Tata Consultancy Services",
+    period: "Aug 2024 – Dec 2025",
+    summary: "Enterprise solutions in BFSI and automation.",
+    points: [
+      "Led migration of a legacy VB.NET + PL/SQL system to Node.js, Express, React and PostgreSQL.",
+      "Re-architected the database schema and queries, improving performance by ~25%.",
+    ],
+  },
+  {
+    id: "freelance",
+    role: "Freelance & Contract Full-Stack Engineer",
+    company: "Independent",
+    period: "Jan 2022 – Jul 2024",
+    summary: "Alongside my degree.",
+    points: [
+      "Delivered 5+ client projects for startups on React, Next.js, Node.js and PostgreSQL, plus OpenAI-powered automation in Python.",
+    ],
+  },
+] as const;
+
+export const SKILL_GROUPS = [
+  {
+    title: "AI & Agents",
+    items: ["Multi-agent orchestration", "RAG", "MCP", "LangGraph", "LangChain", "OpenAI API", "Guardrails", "LLM cost control"],
+  },
+  {
+    title: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "Redux", "Tailwind CSS", "React Native"],
+  },
+  {
+    title: "Backend",
+    items: ["Node.js", "Express", "FastAPI", "Python", "GraphQL", "REST", "Celery", "WebSockets / SSE"],
+  },
+  {
+    title: "Cloud & DevOps",
+    items: ["AWS (EC2, ECS, S3, CloudWatch)", "Azure", "Docker", "GitHub Actions"],
+  },
+  {
+    title: "Databases",
+    items: ["PostgreSQL", "Redis", "MongoDB", "MySQL", "Firebase"],
   },
 ] as const;

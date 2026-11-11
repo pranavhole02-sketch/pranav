@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import { BusinessLandingPageSvg, ECommerceStoreSvg, AIDashboardSvg } from "@/components/svg/ProjectThumbnails";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ComicButton } from "@/components/ui/ComicButton";
+import { InquiryTriggerButton } from "@/components/ui/InquiryTriggerButton";
 import { SketchTag, SketchTagColor, SketchTagVariant } from "@/components/ui/SketchTag";
 import { SketchFrame } from "@/components/ui/SketchFrame";
 import { SketchBorder } from "@/components/ui/SketchBorder";
-import { PROJECTS, PROJECT_TABS, SITE_INFO } from "@/lib/constants";
+import { PROJECTS, PROJECT_TABS } from "@/lib/constants";
 import { Sparkle, StarDoodle } from "@/components/svg/Doodles";
 
 export function FeaturedWork() {
@@ -21,15 +21,7 @@ export function FeaturedWork() {
 
   const filteredProjects = activeTab === "All"
     ? PROJECTS
-    : PROJECTS.filter((p) => {
-        const categoryStr = p.category as string;
-        const tagStr = p.tag as string;
-        if (activeTab === "Websites") return categoryStr === "Websites" || tagStr === "Website";
-        if (activeTab === "Web Apps") return categoryStr === "Web Apps" || tagStr === "Web App";
-        if (activeTab === "E-Commerce") return categoryStr === "E-Commerce" || tagStr === "E-Commerce";
-        if (activeTab === "AI Projects") return categoryStr === "AI Projects";
-        return true;
-      });
+    : PROJECTS.filter((p) => p.category === activeTab);
 
   const cardRotations = ["-rotate-[0.35deg] hover:rotate-0", "rotate-[0.25deg] hover:rotate-0", "-rotate-[0.15deg] hover:rotate-0"];
   const frameVariants = ["a", "b", "c"] as const;
@@ -52,7 +44,7 @@ export function FeaturedWork() {
       <div className="mx-auto max-w-[1280px]">
         {/* Section Heading */}
         <SectionHeading
-          subtitle="A selection of high-impact web apps, modern websites and AI systems we've built."
+          subtitle="AI platforms, SaaS products and real-time systems I've built and shipped."
           title="Selected Work"
           tone="purple"
         />
@@ -106,7 +98,7 @@ export function FeaturedWork() {
         </div>
 
         {/* Projects Grid / Mobile Snap Carousel */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:pb-6 max-md:pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:pb-6 max-md:pt-2">
           {filteredProjects.map((project, index) => {
             const SvgThumbnail = thumbnailComponents[project.type as keyof typeof thumbnailComponents];
             const frameVariant = frameVariants[index % frameVariants.length];
@@ -143,11 +135,11 @@ export function FeaturedWork() {
                   <div className="absolute top-3 left-3">
                     <SketchTag
                       color={
-                        project.tag === "Website"
+                        project.category === "AI & Agents"
+                          ? "lavender"
+                          : project.category === "SaaS"
                           ? "mint"
-                          : project.tag === "E-Commerce"
-                          ? "yellow"
-                          : "lavender"
+                          : "yellow"
                       }
                       label={project.tag}
                       variant={tagVariants[index % tagVariants.length]}
@@ -163,6 +155,21 @@ export function FeaturedWork() {
                 <p className="text-[0.98rem] font-bold text-muted leading-relaxed mb-5 flex-grow">
                   {project.description}
                 </p>
+
+                {project.links && (project.links.github || project.links.live) && (
+                  <div className="mb-4 flex flex-wrap gap-4 font-hand text-lg font-black text-[#17172A]">
+                    {project.links.live && (
+                      <a className="underline decoration-2 underline-offset-4" href={project.links.live} rel="noopener noreferrer" target="_blank">
+                        Live demo ↗
+                      </a>
+                    )}
+                    {project.links.github && (
+                      <a className="underline decoration-2 underline-offset-4" href={project.links.github} rel="noopener noreferrer" target="_blank">
+                        GitHub ↗
+                      </a>
+                    )}
+                  </div>
+                )}
 
                 {/* Tech Tags with SketchTag */}
                 <div className="flex flex-wrap gap-2 pt-3 border-t-2 border-dashed border-[#17172A]/15">
@@ -182,14 +189,9 @@ export function FeaturedWork() {
 
         {/* View All Projects CTA */}
         <div className="mt-14 flex justify-center">
-          <ComicButton
-            href={SITE_INFO.links.viewWork}
-            size="lg"
-            variant="pink"
-            withArrow
-          >
-            View All Projects
-          </ComicButton>
+          <InquiryTriggerButton size="lg" variant="pink" withArrow>
+            Build Something Similar
+          </InquiryTriggerButton>
         </div>
       </div>
     </section>

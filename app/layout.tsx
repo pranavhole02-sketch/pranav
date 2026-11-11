@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito_Sans, Patrick_Hand } from "next/font/google";
 
-import { siteConfig } from "@/config/site";
+import { getSiteUrl } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 import "./globals.css";
@@ -21,116 +21,86 @@ const bodyFont = Nunito_Sans({
   fallback: ["Segoe UI", "system-ui", "sans-serif"],
 });
 
-const vercelHost =
-  process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
-const deploymentSiteUrl =
-  siteConfig.siteUrl ?? (vercelHost ? `https://${vercelHost}` : "https://dialextech.com");
+const deploymentSiteUrl = getSiteUrl();
 const metadataBase = new URL(deploymentSiteUrl);
 
-const title = "Dialex Technologies | Full-Stack Development & AI Solutions Company";
+const title = "Pranav Hole | Freelance AI Engineer & Full-Stack Developer";
 const description =
-  "Dialex Technologies Private Limited helps businesses build modern websites, scalable web applications, AI-powered solutions and cloud systems.";
+  "Freelance senior AI engineer and full-stack developer. I build multi-agent AI systems, RAG, SaaS platforms and scalable backends with Next.js, Node.js, Python and PostgreSQL. Available for remote projects.";
 
 export const metadata: Metadata = {
   title: {
     default: title,
-    template: "%s | Dialex Technologies",
+    template: "%s | Pranav Hole",
   },
   description,
-  applicationName: "Dialex Technologies",
+  applicationName: "Pranav Hole Portfolio",
   generator: "Next.js",
   keywords: [
-    "Dialex Technologies",
-    "Dialex Technologies Private Limited",
-    "Full Stack Developer",
-    "Software Development Company",
-    "AI Engineer",
+    "Pranav Hole",
+    "Freelance AI Engineer",
+    "Freelance Full Stack Developer",
+    "Hire AI Engineer",
+    "Multi-Agent AI Developer",
+    "Agentic AI Developer",
+    "RAG Developer",
+    "LLM Integration",
+    "MCP Developer",
+    "LangGraph Developer",
     "Next.js Developer",
     "React Developer",
     "Node.js Developer",
-    "Python Developer",
-    "Web Application Development",
-    "AI Consulting",
-    "Cloud Development",
-    "Jaipur Software Company",
-    "Rajasthan IT Company",
-    "E-Commerce Development",
-    "Custom AI Integrations",
+    "TypeScript Developer",
+    "Python FastAPI Developer",
+    "PostgreSQL Developer",
     "SaaS MVP Development",
-    "Enterprise Web Solutions",
-    "UI UX Design Agency",
-    "API Development",
-    "PostgreSQL Database Engineering",
-    "Frontend Engineering",
-    "Backend Engineering",
-    "Artificial Intelligence Agency",
-    "FastAPI Python Developers",
-    "TypeScript Consultants",
-    "Tailwind CSS Web Design",
-    "Modern Web Design Agency",
-    "Mobile Responsive Web Apps",
-    "Cloud Native Development",
+    "GraphQL API Developer",
+    "AWS Docker DevOps",
+    "Remote Freelance Developer India",
+    "Bengaluru Developer",
   ],
-  authors: [
-    { name: "Dialex Technologies", url: "https://dialextech.com" },
-    { name: "DIALEX TECHNOLOGIES PRIVATE LIMITED", url: "https://dialextech.com" },
-  ],
-  creator: "Dialex Technologies Private Limited",
-  publisher: "Dialex Technologies Private Limited",
+  authors: [{ name: "Pranav Hole", url: deploymentSiteUrl }],
+  creator: "Pranav Hole",
+  publisher: "Pranav Hole",
   category: "technology",
-  classification: "Software & Technology Solutions, Web Development Agency, AI Consulting",
   metadataBase,
   alternates: {
     canonical: "/",
-    languages: {
-      "en-US": "/",
-      "en-IN": "/",
-      "en-GB": "/",
-      "x-default": "/",
-    },
   },
   openGraph: {
     title,
     description,
     url: deploymentSiteUrl,
-    siteName: "Dialex Technologies",
+    siteName: "Pranav Hole",
     locale: "en_US",
-    alternateLocale: ["en_IN", "en_GB"],
     type: "website",
-    emails: ["info@dialextech.com"],
-    countryName: "India",
     images: [
       {
         url: "/opengraph-image",
-        secureUrl: "/opengraph-image",
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Dialex Technologies - Full-Stack Web & AI Solutions",
+        alt: "Pranav Hole - Freelance AI Engineer & Full-Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@dialextech",
-    creator: "@dialextech",
     title,
     description,
     images: [
       {
         url: "/opengraph-image",
-        alt: "Dialex Technologies - Full-Stack Web & AI Solutions",
+        alt: "Pranav Hole - Freelance AI Engineer & Full-Stack Developer",
       },
     ],
   },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -147,13 +117,8 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.webmanifest",
   other: {
-    "rating": "General",
-    "distribution": "Global",
-    "revisit-after": "7 days",
-    "geo.region": "IN-RJ",
-    "geo.placename": "Jaipur",
-    "geo.position": "26.9443;75.6983",
-    "ICBM": "26.9443, 75.6983",
+    "geo.region": "IN-KA",
+    "geo.placename": "Bengaluru",
     "format-detection": "telephone=no, address=no, email=no",
   },
 };

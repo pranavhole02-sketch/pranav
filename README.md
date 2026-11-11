@@ -33,15 +33,9 @@ Set `NEXT_PUBLIC_SITE_URL` to the deployed HTTPS origin before a self-hosted pro
 
 ## Editing content
 
-- Site identity and optional contact, social, and project URLs: `config/site.ts`
-- Navigation: `data/navigation.ts`
-- Hero, About, CTA, and copyright copy: `data/page-content.ts`
-- Services: `data/services.ts`
-- Process steps: `data/process.ts`
-- Project copy, tags, and thumbnails: `data/projects.ts`
-- Technology stickers: `data/technologies.ts`
-
-Destinations are intentionally `null` in the initial build. A missing destination remains visibly present but is exposed as unavailable and never enters the tab order. To enable contact actions, add real URLs and set `contactActionsEnabled` to `true`; never substitute invented destinations.
+- Identity, email/phone, GitHub/LinkedIn and per-project GitHub/live links: `config/site.ts` (a `null` link is hidden until you set a real URL)
+- All page copy (hero, services, projects, process, experience, skills, about, CTA, nav): `lib/constants.ts`
+- SEO metadata: `app/layout.tsx`, `components/seo/JsonLd.tsx`, `app/opengraph-image.tsx`
 
 ## Replacing artwork
 
@@ -50,7 +44,7 @@ Destinations are intentionally `null` in the initial build. A missing destinatio
 - Project thumbnails: `public/projects/*.png`
 - Doodle textures: `public/doodles/*.svg`
 
-Project artwork is center-cropped into the card's wide image frame. Keep important subjects inside the central safe area, preserve descriptive alt text, and keep filenames stable unless their paths are also updated in `data/projects.ts` or the relevant section component.
+Project artwork is center-cropped into the card's wide image frame. Keep important subjects inside the central safe area, preserve descriptive alt text, and keep filenames stable unless their paths are also updated in the relevant section component.
 
 ## Hand-drawn system
 

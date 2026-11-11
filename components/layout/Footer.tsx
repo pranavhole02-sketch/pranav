@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { LinkedinIcon, GithubIcon, MailIcon } from "@/components/svg/Icons";
 import { SketchIconButton } from "@/components/ui/SketchIconButton";
 import { SITE_INFO, NAV_LINKS } from "@/lib/constants";
@@ -7,7 +7,7 @@ import { SITE_INFO, NAV_LINKS } from "@/lib/constants";
 export function Footer() {
   return (
     <footer
-      aria-label="Dialex Technologies Company Footer"
+      aria-label="Site footer"
       className="relative bg-[#F6B8B8] pt-14 pb-12 px-4 border-t-2 border-[#17172A] overflow-hidden"
       style={{
         backgroundImage: "radial-gradient(rgba(23, 23, 42, 0.05) 0.8px, transparent 0.8px)",
@@ -19,11 +19,11 @@ export function Footer() {
           {/* Left Column: Brand & Company Details */}
           <div className="flex flex-col items-start max-md:items-center max-md:text-center">
             <a
-              aria-label="Dialex Technologies Home"
+              aria-label="Pranav Hole home"
               className="group inline-flex items-center gap-3 no-underline text-[#17172A] mb-4 transition-transform hover:-translate-y-0.5"
               href="#home"
             >
-              {/* Hand-drawn DT monogram badge */}
+              {/* Hand-drawn PH monogram badge */}
               <span className="relative isolate grid h-12 w-12 flex-none place-items-center -rotate-2">
                 <svg
                   aria-hidden="true"
@@ -55,7 +55,7 @@ export function Footer() {
                   {SITE_INFO.name.toUpperCase()}
                 </strong>
                 <span className="text-xs font-bold text-muted">
-                  {SITE_INFO.companyName}
+                  {SITE_INFO.role}
                 </span>
               </div>
             </a>
@@ -65,8 +65,8 @@ export function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="text-[#17172A] flex-none mt-0.5" size={16} strokeWidth={2.4} />
                 <p className="text-xs font-bold text-[#17172A] leading-relaxed m-0">
-                  <span className="font-black block text-[0.8rem] mb-0.5">Registered Office & Mailing Address:</span>
-                  {SITE_INFO.address}
+                  <span className="font-black block text-[0.8rem] mb-0.5">Based in</span>
+                  {SITE_INFO.location} · working remotely worldwide
                 </p>
               </div>
 
@@ -77,6 +77,13 @@ export function Footer() {
                   href={`mailto:${SITE_INFO.email}`}
                 >
                   {SITE_INFO.email}
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Phone className="text-[#17172A] flex-none" size={15} strokeWidth={2.4} />
+                <a className="text-xs font-extrabold text-[#17172A] hover:underline" href={SITE_INFO.phoneHref}>
+                  {SITE_INFO.phone}
                 </a>
               </div>
             </address>
@@ -110,48 +117,37 @@ export function Footer() {
             
             {/* Irregular Sketch Icon Buttons */}
             <div className="flex items-center gap-3">
-              {/* LinkedIn */}
-              <SketchIconButton
-                ariaLabel="LinkedIn Profile of Dialex Technologies"
-                blobIndex={0}
-                className="w-11 h-11"
-                href={SITE_INFO.socials.linkedin}
-                rotation="-rotate-2"
-                shadow="pink"
-                variant="white"
-              >
-                <LinkedinIcon className="w-5 h-5" />
-              </SketchIconButton>
+              {SITE_INFO.socials.linkedin && (
+                <SketchIconButton
+                  ariaLabel="Pranav Hole on LinkedIn"
+                  blobIndex={0}
+                  className="w-11 h-11"
+                  href={SITE_INFO.socials.linkedin}
+                  rotation="-rotate-2"
+                  shadow="pink"
+                  variant="white"
+                >
+                  <LinkedinIcon className="w-5 h-5" />
+                </SketchIconButton>
+              )}
 
-              {/* GitHub */}
-              <SketchIconButton
-                ariaLabel="GitHub Organization of Dialex Technologies"
-                blobIndex={1}
-                className="w-11 h-11"
-                href={SITE_INFO.socials.github}
-                rotation="rotate-1"
-                shadow="pink"
-                variant="white"
-              >
-                <GithubIcon className="w-5 h-5" />
-              </SketchIconButton>
-
-              {/* Twitter / X */}
-              <SketchIconButton
-                ariaLabel="Twitter Profile of Dialex Technologies"
-                blobIndex={2}
-                className="w-11 h-11"
-                href={SITE_INFO.socials.twitter}
-                rotation="-rotate-1"
-                shadow="pink"
-                variant="white"
-              >
-                <span className="font-sans font-black text-base">𝕏</span>
-              </SketchIconButton>
+              {SITE_INFO.socials.github && (
+                <SketchIconButton
+                  ariaLabel="Pranav Hole on GitHub"
+                  blobIndex={1}
+                  className="w-11 h-11"
+                  href={SITE_INFO.socials.github}
+                  rotation="rotate-1"
+                  shadow="pink"
+                  variant="white"
+                >
+                  <GithubIcon className="w-5 h-5" />
+                </SketchIconButton>
+              )}
 
               {/* Email */}
               <SketchIconButton
-                ariaLabel="Send Email to Dialex Technologies"
+                ariaLabel="Email Pranav Hole"
                 blobIndex={3}
                 className="w-11 h-11"
                 href={`mailto:${SITE_INFO.email}`}

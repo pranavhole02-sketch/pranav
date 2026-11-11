@@ -1,4 +1,4 @@
--- PostgreSQL Schema for Dialex Technologies Inquiries
+-- PostgreSQL Schema for Portfolio Inquiries
 
 CREATE TABLE IF NOT EXISTS inquiries (
   id SERIAL PRIMARY KEY,

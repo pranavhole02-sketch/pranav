@@ -1,14 +1,14 @@
 import React from "react";
 import { DeveloperAvatar } from "@/components/svg/DeveloperAvatar";
-import { ComicButton } from "@/components/ui/ComicButton";
+import { InquiryTriggerButton } from "@/components/ui/InquiryTriggerButton";
 import { TagPill } from "@/components/ui/TagPill";
-import { SITE_INFO } from "@/lib/constants";
+import { SITE_INFO, SKILL_GROUPS } from "@/lib/constants";
 import { Sparkle, StarDoodle, Squiggle } from "@/components/svg/Doodles";
 
 export function AboutBanner() {
   return (
     <section
-      className="relative bg-cream py-16 md:py-24 px-4 border-b-2 border-[#17172A] overflow-hidden"
+      className="relative bg-cream py-16 md:py-24 px-4 overflow-hidden"
       id="about"
       style={{
         backgroundImage: "radial-gradient(rgba(23, 23, 42, 0.06) 0.8px, transparent 0.8px)",
@@ -29,7 +29,7 @@ export function AboutBanner() {
               
               {/* Floating Hand-drawn Badge */}
               <div className="absolute -bottom-2 -right-2 bg-[#CFEBD8] border-2 border-[#17172A] px-4 py-1.5 rounded-xl font-hand text-base font-black rotate-3 shadow-[3px_3px_0_#17172A]">
-                Full-Stack & AI 🚀
+                AI + Full-Stack 🚀
               </div>
             </div>
           </div>
@@ -60,33 +60,44 @@ export function AboutBanner() {
 
             {/* Main Copy */}
             <p className="font-hand text-[clamp(1.25rem,1.8vw,1.6rem)] font-bold text-[#17172A] leading-relaxed mb-4">
-              We&apos;re a digital engineering company focused on building clean, scalable and useful digital products.
+              {SITE_INFO.aboutLead}
             </p>
 
             <p className="text-[1.05rem] font-bold text-muted leading-relaxed mb-6">
-              We work across modern web development, backend systems, cloud infrastructure and AI-powered applications. Whether taking a product from zero to one or supercharging an existing codebase, we focus on velocity, maintainability, and real business outcomes.
+              {SITE_INFO.aboutCopy}
             </p>
 
-            {/* 3 Skill Chips */}
-            <div className="flex flex-wrap gap-2.5 mb-8">
-              {SITE_INFO.aboutSkills.map((skill, idx) => (
-                <TagPill
-                  color={idx === 0 ? "mint" : idx === 1 ? "lavender" : "yellow"}
-                  key={skill}
-                  label={skill}
-                />
-              ))}
-            </div>
+            <p className="text-sm font-bold text-muted leading-relaxed mb-8">
+              {SITE_INFO.education}
+            </p>
 
             {/* CTA */}
-            <ComicButton
-              href={SITE_INFO.links.buildTogether}
-              size="lg"
-              variant="pink"
-              withArrow
-            >
+            <InquiryTriggerButton size="lg" variant="pink" withArrow>
               Let&apos;s Build Together
-            </ComicButton>
+            </InquiryTriggerButton>
+          </div>
+        </div>
+
+        {/* Skills */}
+        <div className="mt-16">
+          <h3 className="mb-6 text-center font-hand text-[clamp(1.8rem,3vw,2.4rem)] leading-none text-[#17172A]">
+            My Toolbox
+          </h3>
+          <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
+            {SKILL_GROUPS.map((group, groupIndex) => (
+              <div key={group.title}>
+                <h4 className="mb-2.5 font-hand text-xl font-black text-[#17172A]">{group.title}</h4>
+                <div className="flex flex-wrap gap-2.5">
+                  {group.items.map((item, idx) => (
+                    <TagPill
+                      color={(["mint", "lavender", "yellow", "pink"] as const)[(groupIndex + idx) % 4]}
+                      key={item}
+                      label={item}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

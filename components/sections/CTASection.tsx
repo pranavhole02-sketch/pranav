@@ -54,6 +54,15 @@ export function CTASection() {
             <p className="mt-5 mb-0 font-hand text-[clamp(1.2rem,1.8vw,1.6rem)] font-bold text-muted">
               {SITE_INFO.ctaSubtext}
             </p>
+            <p className="mt-4 mb-0 font-hand text-lg font-bold text-[#17172A]">
+              <a className="underline decoration-2 underline-offset-4" href={`mailto:${SITE_INFO.email}`}>
+                {SITE_INFO.email}
+              </a>
+              <span aria-hidden="true"> · </span>
+              <a className="underline decoration-2 underline-offset-4" href={SITE_INFO.phoneHref}>
+                {SITE_INFO.phone}
+              </a>
+            </p>
           </div>
 
           {/* Right: Hand-Drawn Comic Buttons */}
@@ -71,7 +80,7 @@ export function CTASection() {
               size="lg"
               variant="white"
             >
-              View Our Work
+              View My Work
             </ComicButton>
           </div>
         </div>

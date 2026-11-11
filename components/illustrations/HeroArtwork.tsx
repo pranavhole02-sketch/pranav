@@ -74,7 +74,7 @@ export function HeroArtwork() {
         ) : (
           <div className="flex flex-col items-center justify-center p-14 min-h-[420px] text-center bg-[#FFF8E8]">
             <div className="w-20 h-20 rounded-full border-2 border-[#17172A] bg-[#F9E37D] grid place-items-center mb-4 shadow-[3px_3px_0_#17172A]">
-              <span className="font-hand text-3xl font-black">DT</span>
+              <span className="font-hand text-3xl font-black">PH</span>
             </div>
             <p className="font-hand text-3xl font-black text-[#17172A]">Hero Animation</p>
             <p className="text-base font-bold text-muted mt-1">Full-Stack & AI Solutions in Motion</p>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { MessageCircle } from "lucide-react";
-import { navigation } from "@/data/navigation";
+import { NAV_LINKS as navigation } from "@/lib/constants";
 import { BrandLockup } from "./BrandLockup";
 import { MobileMenu } from "./MobileMenu";
 import { useInquiryModal } from "@/components/context/InquiryContext";
