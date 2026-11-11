@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
 
     if (!result.success) {
       return NextResponse.json(
-        { success: false, error: result.error || "Failed to store inquiry" },
+        { success: false, error: result.error || "Could not save your message right now. Please email me directly instead." },
         { status: 500 }
       );
     }
@@ -64,10 +64,9 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Internal Server Error";
-    console.error("[Inquiries API Error]:", error);
+        console.error("[Inquiries API Error]:", error);
     return NextResponse.json(
-      { success: false, error: message },
+      { success: false, error: "Something went wrong. Please email me directly instead." },
       { status: 500 }
     );
   }

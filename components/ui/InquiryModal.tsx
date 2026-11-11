@@ -202,7 +202,7 @@ export function InquiryModal({
                     disabled={isSubmitting}
                     id="inquiry-name"
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Alex Smith"
+                    placeholder="e.g. Arti"
                     required
                     type="text"
                     value={name}

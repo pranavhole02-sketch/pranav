@@ -47,7 +47,7 @@ export async function insertInquiry(
     console.error("[Prisma Insert Error]:", errorMessage);
     return {
       success: false,
-      error: errorMessage,
+      error: "Could not save your message right now. Please email me directly instead.",
     };
   }
 }
