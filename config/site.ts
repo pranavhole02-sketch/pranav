@@ -21,6 +21,9 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/pranav-hole/" as string | null,
   },
   projectLinks: {
+    // Client sites: repos are private, so only the live site is linked.
+    shreeRamTubewell: { github: null as string | null, live: "https://shree-ram-tubewell.vercel.app/" as string | null },
+    creekAndCopper: { github: null as string | null, live: "https://creek-and-copper.vercel.app/" as string | null },
     chainops: { github: null as string | null, live: null as string | null },
     tokentrade: { github: null as string | null, live: null as string | null },
   },

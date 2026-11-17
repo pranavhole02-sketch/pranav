@@ -76,9 +76,36 @@ export const SERVICES = [
   },
 ] as const;
 
-export const PROJECT_TABS = ["All", "AI & Agents", "SaaS", "Real-Time"] as const;
+export const PROJECT_TABS = ["All", "Client Work", "AI & Agents", "SaaS", "Real-Time"] as const;
 
 export const PROJECTS = [
+  // Recently completed client websites, shown first.
+  {
+    id: "shree-ram-tubewell",
+    title: "Shree Ram Tubewell & Contractor",
+    description:
+      "Lead-generation website for a drilling contractor working across West Bengal, Sikkim, Bhutan and Nepal since 2013. Service pages for tubewell, tunnel, hydropower/dam and foundation drilling, region pages for its project record, click-to-call and WhatsApp enquiries, and on-page SEO with structured data.",
+    category: "Client Work",
+    tag: "Client · Delivered",
+    type: "landing-page",
+    image: "/projects/shree-ram-tubewell.webp",
+    imageAlt: "Shree Ram Tubewell & Contractor homepage: hydropower drilling rig at a dam site with the headline 'Tubewell, Foundation & Hydropower Drilling Contractor'",
+    tags: ["Next.js", "Tailwind CSS", "SEO", "Schema.org", "Vercel"],
+    links: siteConfig.projectLinks.shreeRamTubewell,
+  },
+  {
+    id: "creek-and-copper",
+    title: "Creek & Copper",
+    description:
+      "Website for a four-branch café brand in Warri, Nigeria, rebranded under one name. Branch pages driven by a single data file, a Nigerian-inspired design (adire and Ankara patterns), photos sourced and optimised to WebP, and SEO with prerendered pages, LocalBusiness structured data and social share cards.",
+    category: "Client Work",
+    tag: "Client · Delivered",
+    type: "landing-page",
+    image: "/projects/creek-and-copper.webp",
+    imageAlt: "Creek & Copper homepage: 'Good coffee and fresh food, Warri style' on an indigo adire pattern beside café and food photos",
+    tags: ["HTML", "CSS", "JavaScript", "Node.js", "Schema.org", "Vercel"],
+    links: siteConfig.projectLinks.creekAndCopper,
+  },
   {
     id: "bluefin-ai-portal",
     title: "BlueFin AI Portal",

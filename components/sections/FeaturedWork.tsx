@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { BusinessLandingPageSvg, ECommerceStoreSvg, AIDashboardSvg } from "@/components/svg/ProjectThumbnails";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { InquiryTriggerButton } from "@/components/ui/InquiryTriggerButton";
@@ -44,7 +45,7 @@ export function FeaturedWork() {
       <div className="mx-auto max-w-[1280px]">
         {/* Section Heading */}
         <SectionHeading
-          subtitle="AI platforms, SaaS products and real-time systems I've built and shipped."
+          subtitle="Recent client websites, AI platforms, SaaS products and real-time systems I've built and shipped."
           title="Selected Work"
           tone="purple"
         />
@@ -126,8 +127,18 @@ export function FeaturedWork() {
                     borderRadius: "16px 22px 18px 24px / 22px 16px 24px 18px",
                   }}
                 >
-                  <SvgThumbnail className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                  
+                  {"image" in project ? (
+                    <Image
+                      alt={project.imageAlt}
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      sizes="(min-width: 768px) 600px, 85vw"
+                      src={project.image}
+                    />
+                  ) : (
+                    <SvgThumbnail className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  )}
+
                   {/* Hand-drawn SketchBorder on image */}
                   <SketchBorder strokeWidth={2} variant={frameVariant} />
 
@@ -135,7 +146,9 @@ export function FeaturedWork() {
                   <div className="absolute top-3 left-3">
                     <SketchTag
                       color={
-                        project.category === "AI & Agents"
+                        project.category === "Client Work"
+                          ? "pink"
+                          : project.category === "AI & Agents"
                           ? "lavender"
                           : project.category === "SaaS"
                           ? "mint"
@@ -160,7 +173,7 @@ export function FeaturedWork() {
                   <div className="mb-4 flex flex-wrap gap-4 font-hand text-lg font-black text-[#17172A]">
                     {project.links.live && (
                       <a className="underline decoration-2 underline-offset-4" href={project.links.live} rel="noopener noreferrer" target="_blank">
-                        Live demo ↗
+                        {project.category === "Client Work" ? "Visit live site ↗" : "Live demo ↗"}
                       </a>
                     )}
                     {project.links.github && (
